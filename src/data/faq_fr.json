@@ -1,0 +1,502 @@
+[
+  {
+    "id": "fr-001",
+    "title": "Demande de passeport",
+    "question": "Comment obtenir un passeport ?",
+    "keywords": ["passeport", "voyage", "document", "identité", "demande"],
+    "answer": "Pour obtenir un passeport, vous devez vous rendre à la mairie ou préfecture avec les documents requis.",
+    "steps": [
+      "Préparer une photo d'identité récente",
+      "Rassembler un justificatif de domicile",
+      "Apporter votre carte d'identité",
+      "Remplir le formulaire de demande",
+      "Payer les frais de timbre fiscal"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/N360",
+    "category": "documents",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-002",
+    "title": "Carte d'identité nationale",
+    "question": "Comment renouveler sa carte d'identité ?",
+    "keywords": ["carte", "identité", "CNI", "renouvellement", "document"],
+    "answer": "Le renouvellement de la carte d'identité est gratuit et se fait en mairie.",
+    "steps": [
+      "Prendre rendez-vous en mairie",
+      "Apporter l'ancienne carte d'identité",
+      "Fournir une photo d'identité",
+      "Présenter un justificatif de domicile",
+      "Retirer la nouvelle carte sous 3 semaines"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/N358",
+    "category": "documents",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-003",
+    "title": "Acte de naissance",
+    "question": "Comment obtenir un acte de naissance ?",
+    "keywords": ["naissance", "acte", "extrait", "certificat", "état civil"],
+    "answer": "L'acte de naissance peut être demandé en ligne ou à la mairie du lieu de naissance.",
+    "steps": [
+      "Se connecter sur service-public.fr ou contacter la mairie",
+      "Indiquer nom, prénom et date de naissance",
+      "Préciser le type d'acte souhaité (copie intégrale ou extrait)",
+      "Recevoir l'acte par courrier ou le retirer sur place"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F1427",
+    "category": "etat-civil",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-004",
+    "title": "Permis de conduire",
+    "question": "Comment passer le permis de conduire ?",
+    "keywords": ["permis", "conduire", "voiture", "auto-école", "examen"],
+    "answer": "Pour passer le permis de conduire, inscrivez-vous dans une auto-école et passez le code puis la conduite.",
+    "steps": [
+      "S'inscrire dans une auto-école agréée",
+      "Suivre les cours de code de la route",
+      "Passer l'examen théorique (code)",
+      "Prendre des leçons de conduite (minimum 20h)",
+      "Passer l'examen pratique"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/N530",
+    "category": "transport",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-005",
+    "title": "Carte grise véhicule",
+    "question": "Comment faire une carte grise ?",
+    "keywords": ["carte grise", "véhicule", "immatriculation", "voiture", "certificat"],
+    "answer": "La carte grise (certificat d'immatriculation) se demande en ligne sur le site de l'ANTS.",
+    "steps": [
+      "Créer un compte sur ants.gouv.fr",
+      "Remplir le formulaire de demande",
+      "Joindre les justificatifs (identité, domicile, contrôle technique)",
+      "Payer les taxes en ligne",
+      "Recevoir la carte grise sous 7 jours"
+    ],
+    "link": "https://immatriculation.ants.gouv.fr/",
+    "category": "transport",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-006",
+    "title": "Déclaration d'impôts",
+    "question": "Comment déclarer ses impôts ?",
+    "keywords": ["impôts", "déclaration", "revenus", "fiscal", "taxes"],
+    "answer": "La déclaration d'impôts se fait en ligne sur impots.gouv.fr entre avril et juin.",
+    "steps": [
+      "Se connecter sur impots.gouv.fr",
+      "Vérifier les informations pré-remplies",
+      "Ajouter les revenus et charges déductibles",
+      "Valider la déclaration",
+      "Recevoir l'avis d'imposition"
+    ],
+    "link": "https://www.impots.gouv.fr/",
+    "category": "fiscal",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-007",
+    "title": "Inscription Pôle Emploi",
+    "question": "Comment s'inscrire à Pôle Emploi ?",
+    "keywords": ["pôle emploi", "chômage", "inscription", "allocation", "travail"],
+    "answer": "L'inscription à Pôle Emploi se fait en ligne dans les 12 mois suivant la fin du contrat.",
+    "steps": [
+      "Se rendre sur pole-emploi.fr",
+      "Créer un espace personnel",
+      "Remplir le formulaire d'inscription",
+      "Joindre les documents (attestation employeur, CV)",
+      "Convenir d'un rendez-vous avec un conseiller"
+    ],
+    "link": "https://www.pole-emploi.fr/",
+    "category": "emploi",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-008",
+    "title": "Création d'association",
+    "question": "Comment créer une association loi 1901 ?",
+    "keywords": ["association", "création", "loi 1901", "statuts", "déclaration"],
+    "answer": "Créer une association nécessite de rédiger les statuts et de déclarer en préfecture.",
+    "steps": [
+      "Rédiger les statuts de l'association",
+      "Organiser l'assemblée générale constitutive",
+      "Élire le bureau (président, trésorier, secrétaire)",
+      "Déclarer l'association en préfecture ou en ligne",
+      "Publier au Journal Officiel"
+    ],
+    "link": "https://www.service-public.fr/associations/vosdroits/F1119",
+    "category": "association",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-009",
+    "title": "Demande de visa",
+    "question": "Comment obtenir un visa pour la France ?",
+    "keywords": ["visa", "séjour", "voyage", "étranger", "consulat"],
+    "answer": "La demande de visa se fait auprès du consulat français du pays de résidence.",
+    "steps": [
+      "Déterminer le type de visa nécessaire",
+      "Prendre rendez-vous au consulat",
+      "Rassembler les documents (passeport, photos, justificatifs)",
+      "Déposer le dossier et payer les frais",
+      "Attendre la décision (délai variable)"
+    ],
+    "link": "https://france-visas.gouv.fr/",
+    "category": "immigration",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-010",
+    "title": "Casier judiciaire",
+    "question": "Comment obtenir un extrait de casier judiciaire ?",
+    "keywords": ["casier", "judiciaire", "bulletin", "extrait", "justice"],
+    "answer": "L'extrait de casier judiciaire (bulletin n°3) est gratuit et se demande en ligne.",
+    "steps": [
+      "Se rendre sur casier-judiciaire.justice.gouv.fr",
+      "Remplir le formulaire avec vos informations",
+      "Indiquer l'adresse de réception",
+      "Recevoir le document sous 2 semaines"
+    ],
+    "link": "https://casier-judiciaire.justice.gouv.fr/",
+    "category": "justice",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-011",
+    "title": "Aide au logement",
+    "question": "Comment demander une aide au logement APL ?",
+    "keywords": ["APL", "logement", "aide", "CAF", "allocation"],
+    "answer": "Les aides au logement (APL, ALF, ALS) se demandent sur le site de la CAF.",
+    "steps": [
+      "Créer un compte sur caf.fr",
+      "Simuler vos droits avec le simulateur",
+      "Remplir la demande en ligne",
+      "Joindre les justificatifs (bail, revenus)",
+      "Suivre l'avancement de votre dossier"
+    ],
+    "link": "https://www.caf.fr/",
+    "category": "social",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-012",
+    "title": "Carte Vitale",
+    "question": "Comment obtenir sa carte Vitale ?",
+    "keywords": ["carte vitale", "santé", "sécurité sociale", "assurance maladie"],
+    "answer": "La carte Vitale est envoyée automatiquement à 16 ans ou sur demande à la CPAM.",
+    "steps": [
+      "Vérifier votre affiliation à la Sécurité sociale",
+      "Envoyer une photo d'identité à la CPAM",
+      "Recevoir la carte sous 3 semaines",
+      "Activer la carte en pharmacie"
+    ],
+    "link": "https://www.ameli.fr/",
+    "category": "sante",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-013",
+    "title": "Inscription scolaire",
+    "question": "Comment inscrire son enfant à l'école ?",
+    "keywords": ["école", "inscription", "scolaire", "enfant", "maternelle", "primaire"],
+    "answer": "L'inscription scolaire se fait en mairie puis à l'école du secteur.",
+    "steps": [
+      "Inscrire l'enfant en mairie avec livret de famille",
+      "Recevoir le certificat d'inscription",
+      "Contacter l'école du secteur",
+      "Fournir les documents demandés",
+      "Confirmer l'inscription avant la rentrée"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F1864",
+    "category": "education",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-014",
+    "title": "Mariage civil",
+    "question": "Comment se marier à la mairie ?",
+    "keywords": ["mariage", "civil", "mairie", "union", "cérémonie"],
+    "answer": "Le mariage civil se célèbre à la mairie après constitution du dossier.",
+    "steps": [
+      "Retirer le dossier de mariage en mairie",
+      "Fournir les pièces d'identité et actes de naissance",
+      "Choisir les témoins (2 à 4 personnes)",
+      "Publier les bans 10 jours avant",
+      "Se présenter le jour de la cérémonie"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/N142",
+    "category": "etat-civil",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-015",
+    "title": "RSA - Revenu de Solidarité Active",
+    "question": "Comment demander le RSA ?",
+    "keywords": ["RSA", "revenu", "solidarité", "aide sociale", "minimum"],
+    "answer": "Le RSA est une aide pour les personnes sans ressources, à demander à la CAF ou MSA.",
+    "steps": [
+      "Vérifier les conditions d'éligibilité",
+      "Simuler vos droits sur caf.fr",
+      "Remplir la demande en ligne ou en agence",
+      "Joindre les justificatifs de ressources",
+      "Renouveler la déclaration tous les 3 mois"
+    ],
+    "link": "https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/solidarite-et-insertion/le-rsa",
+    "category": "social",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-016",
+    "title": "Aide juridictionnelle",
+    "question": "Comment obtenir l'aide juridictionnelle ?",
+    "keywords": ["aide juridictionnelle", "avocat", "justice", "gratuit", "tribunal"],
+    "answer": "L'aide juridictionnelle permet de bénéficier d'un avocat gratuit selon vos revenus.",
+    "steps": [
+      "Télécharger le formulaire Cerfa n°15626",
+      "Joindre les justificatifs de revenus",
+      "Déposer le dossier au tribunal compétent",
+      "Attendre la décision du bureau d'aide",
+      "Choisir ou se voir attribuer un avocat"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F18074",
+    "category": "justice",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-017",
+    "title": "Titre de séjour",
+    "question": "Comment renouveler son titre de séjour ?",
+    "keywords": ["titre de séjour", "renouvellement", "étranger", "préfecture", "résidence"],
+    "answer": "Le renouvellement du titre de séjour se fait en préfecture, 2 mois avant expiration.",
+    "steps": [
+      "Prendre rendez-vous sur le site de la préfecture",
+      "Préparer les documents (passeport, justificatif domicile, photos)",
+      "Se rendre au rendez-vous avec le dossier complet",
+      "Payer les taxes requises",
+      "Retirer le nouveau titre sous 2-3 mois"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/N110",
+    "category": "immigration",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-018",
+    "title": "Prime d'activité",
+    "question": "Comment demander la prime d'activité ?",
+    "keywords": ["prime", "activité", "travail", "CAF", "complément"],
+    "answer": "La prime d'activité est un complément de revenus pour les travailleurs modestes.",
+    "steps": [
+      "Simuler vos droits sur caf.fr",
+      "Créer ou se connecter à votre espace CAF",
+      "Remplir la demande de prime d'activité",
+      "Déclarer vos revenus des 3 derniers mois",
+      "Renouveler la déclaration tous les 3 mois"
+    ],
+    "link": "https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/solidarite-et-insertion/la-prime-d-activite",
+    "category": "social",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-019",
+    "title": "Certificat de scolarité",
+    "question": "Comment obtenir un certificat de scolarité ?",
+    "keywords": ["certificat", "scolarité", "école", "université", "étudiant"],
+    "answer": "Le certificat de scolarité se demande à l'établissement scolaire ou universitaire.",
+    "steps": [
+      "Contacter le secrétariat de l'établissement",
+      "Faire la demande en ligne (ENT) ou sur place",
+      "Indiquer l'année scolaire concernée",
+      "Retirer ou recevoir le document"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F559",
+    "category": "education",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-020",
+    "title": "Attestation de droits Ameli",
+    "question": "Comment télécharger une attestation de droits ?",
+    "keywords": ["attestation", "droits", "ameli", "sécurité sociale", "mutuelle"],
+    "answer": "L'attestation de droits est disponible instantanément sur votre compte Ameli.",
+    "steps": [
+      "Se connecter sur ameli.fr",
+      "Aller dans 'Mes démarches'",
+      "Cliquer sur 'Attestation de droits'",
+      "Télécharger ou imprimer le document"
+    ],
+    "link": "https://www.ameli.fr/",
+    "category": "sante",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-021",
+    "title": "Déclaration de perte/vol",
+    "question": "Comment déclarer une perte ou un vol de documents ?",
+    "keywords": ["perte", "vol", "déclaration", "papiers", "documents"],
+    "answer": "La déclaration de perte ou vol se fait au commissariat ou en ligne.",
+    "steps": [
+      "Se rendre au commissariat ou gendarmerie",
+      "Ou faire une pré-plainte en ligne",
+      "Décrire les circonstances et documents perdus",
+      "Obtenir le récépissé de déclaration",
+      "Utiliser ce récépissé pour refaire vos papiers"
+    ],
+    "link": "https://www.pre-plainte-en-ligne.gouv.fr/",
+    "category": "justice",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-022",
+    "title": "Inscription liste électorale",
+    "question": "Comment s'inscrire sur les listes électorales ?",
+    "keywords": ["élection", "vote", "inscription", "liste électorale", "citoyenneté"],
+    "answer": "L'inscription sur les listes électorales est possible en mairie ou en ligne.",
+    "steps": [
+      "Se rendre sur service-public.fr ou en mairie",
+      "Remplir le formulaire d'inscription",
+      "Fournir une pièce d'identité et justificatif de domicile",
+      "L'inscription est effective jusqu'au 6ème vendredi avant l'élection"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F1367",
+    "category": "citoyennete",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-023",
+    "title": "Allocation rentrée scolaire",
+    "question": "Comment demander l'allocation de rentrée scolaire ?",
+    "keywords": ["allocation", "rentrée", "scolaire", "ARS", "enfant"],
+    "answer": "L'ARS est versée automatiquement aux allocataires CAF avec enfants scolarisés.",
+    "steps": [
+      "Vérifier que vous êtes allocataire CAF",
+      "Avoir un enfant entre 6 et 18 ans scolarisé",
+      "Le versement est automatique mi-août",
+      "Pour les 16-18 ans, fournir un certificat de scolarité"
+    ],
+    "link": "https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/enfance-et-jeunesse/l-allocation-de-rentree-scolaire-ars",
+    "category": "education",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-024",
+    "title": "Demande de naturalisation",
+    "question": "Comment demander la nationalité française ?",
+    "keywords": ["nationalité", "naturalisation", "française", "citoyenneté", "étranger"],
+    "answer": "La demande de naturalisation se fait en préfecture après 5 ans de résidence en France.",
+    "steps": [
+      "Vérifier les conditions (résidence, intégration, langue)",
+      "Constituer le dossier complet",
+      "Déposer en préfecture ou en ligne",
+      "Passer l'entretien de naturalisation",
+      "Attendre le décret (délai variable)"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F2213",
+    "category": "citoyennete",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-025",
+    "title": "Déclaration de décès",
+    "question": "Comment déclarer un décès ?",
+    "keywords": ["décès", "mort", "déclaration", "mairie", "obsèques"],
+    "answer": "Le décès doit être déclaré en mairie dans les 24 heures.",
+    "steps": [
+      "Obtenir le certificat médical de décès",
+      "Se rendre à la mairie du lieu de décès",
+      "Présenter le certificat et le livret de famille",
+      "Recevoir l'acte de décès",
+      "Organiser les obsèques"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F909",
+    "category": "etat-civil",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-026",
+    "title": "Allocation adulte handicapé",
+    "question": "Comment demander l'AAH ?",
+    "keywords": ["AAH", "handicap", "allocation", "adulte", "invalidité"],
+    "answer": "L'AAH se demande à la MDPH de votre département.",
+    "steps": [
+      "Télécharger le formulaire Cerfa n°15692",
+      "Joindre le certificat médical",
+      "Déposer le dossier à la MDPH",
+      "Attendre l'évaluation de la commission",
+      "Recevoir la notification de décision"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F12242",
+    "category": "social",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-027",
+    "title": "Procuration de vote",
+    "question": "Comment faire une procuration pour voter ?",
+    "keywords": ["procuration", "vote", "élection", "absence", "mandataire"],
+    "answer": "La procuration permet de faire voter quelqu'un à votre place si vous êtes absent.",
+    "steps": [
+      "Faire la demande en ligne sur maprocuration.gouv.fr",
+      "Ou se rendre au tribunal, commissariat ou gendarmerie",
+      "Désigner un mandataire inscrit dans la même commune",
+      "Présenter une pièce d'identité",
+      "Le mandataire votera à votre place"
+    ],
+    "link": "https://www.maprocuration.gouv.fr/",
+    "category": "citoyennete",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-028",
+    "title": "Changement d'adresse",
+    "question": "Comment signaler un changement d'adresse ?",
+    "keywords": ["déménagement", "adresse", "changement", "domicile", "courrier"],
+    "answer": "Utilisez le service en ligne pour informer plusieurs administrations en une seule démarche.",
+    "steps": [
+      "Se rendre sur service-public.fr/changement-adresse",
+      "Sélectionner les organismes à informer",
+      "Saisir votre nouvelle adresse",
+      "Valider et suivre les confirmations"
+    ],
+    "link": "https://www.service-public.fr/particuliers/vosdroits/R11193",
+    "category": "demarches",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-029",
+    "title": "Allocation familiale",
+    "question": "Comment demander les allocations familiales ?",
+    "keywords": ["allocations", "familiales", "CAF", "enfant", "famille"],
+    "answer": "Les allocations familiales sont versées automatiquement dès le 2ème enfant.",
+    "steps": [
+      "Déclarer la naissance à la CAF",
+      "Créer un compte sur caf.fr si nécessaire",
+      "Le versement est automatique à partir du 2ème enfant",
+      "Déclarer tout changement de situation"
+    ],
+    "link": "https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/enfance-et-jeunesse/les-allocations-familiales-af",
+    "category": "social",
+    "lang": "fr"
+  },
+  {
+    "id": "fr-030",
+    "title": "Déclaration d'embauche",
+    "question": "Comment déclarer une embauche à l'URSSAF ?",
+    "keywords": ["embauche", "URSSAF", "employeur", "contrat", "DPAE"],
+    "answer": "La DPAE (Déclaration Préalable À l'Embauche) est obligatoire avant toute embauche.",
+    "steps": [
+      "Se connecter sur net-entreprises.fr ou urssaf.fr",
+      "Remplir la DPAE avec les infos du salarié",
+      "Envoyer au plus tard le jour de l'embauche",
+      "Conserver l'accusé de réception"
+    ],
+    "link": "https://www.urssaf.fr/",
+    "category": "emploi",
+    "lang": "fr"
+  }
+]
