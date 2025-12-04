@@ -17,8 +17,16 @@ import { AIState } from '@/components/assistant/TypingIndicator';
 import faqFr from '@/data/faq_fr.json';
 import faqAr from '@/data/faq_ar.json';
 import { translations } from '@/lib/i18n';
+import { supabase } from '@/integrations/supabase/client';
 
 const CONFIDENCE_THRESHOLD = 0.25;
+
+interface AIResponseData {
+  answer: string;
+  steps?: string[];
+  links?: { title: string; url: string }[];
+  category?: string;
+}
 
 export function useAssistant(lang: Language) {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -70,20 +78,36 @@ export function useAssistant(lang: Language) {
     );
   };
 
-  const search = useCallback(async (query: string): Promise<SearchResult | null> => {
-    // Phase 1: Thinking
-    setAIState('thinking');
-    await simulateDelay(400, 800);
+  // Search AI via edge function
+  const searchAI = async (query: string): Promise<{ data: AIResponseData; source: 'ai' } | null> => {
+    try {
+      const { data, error } = await supabase.functions.invoke('search-assistant', {
+        body: { query, lang }
+      });
 
+      if (error) {
+        console.error('AI search error:', error);
+        return null;
+      }
+
+      if (data?.success && data?.data) {
+        return { data: data.data, source: 'ai' };
+      }
+
+      return null;
+    } catch (error) {
+      console.error('AI search failed:', error);
+      return null;
+    }
+  };
+
+  // Local FAQ search
+  const searchLocal = useCallback((query: string): SearchResult | null => {
     // Check cache first
     const cached = getFromCache(lang, query);
     if (cached) {
       return cached;
     }
-
-    // Phase 2: Searching
-    setAIState('searching');
-    await simulateDelay(600, 1200);
 
     if (!indexRef.current) return null;
 
@@ -102,7 +126,7 @@ export function useAssistant(lang: Language) {
       return ruleResult;
     }
 
-    // Return best result even if below threshold, or null
+    // Return best result even if below threshold
     if (results.length > 0) {
       return results[0];
     }
@@ -120,21 +144,70 @@ export function useAssistant(lang: Language) {
     };
     setMessages(prev => [...prev, userMessage]);
 
-    // Search for response
-    const result = await search(content);
+    let assistantMessage: Message;
 
-    // Phase 3: Writing
-    setAIState('writing');
-    await simulateDelay(300, 600);
+    // Online mode: Try AI search first
+    if (isOnline) {
+      // Phase 1: Thinking
+      setAIState('thinking');
+      await simulateDelay(300, 500);
 
-    // Create assistant response
-    const assistantMessage: Message = {
-      id: `assistant-${Date.now()}`,
-      role: 'assistant',
-      content: result ? result.item.answer : t.noResult,
-      timestamp: new Date(),
-      result: result || undefined
-    };
+      // Phase 2: Searching web
+      setAIState('searching');
+      
+      const aiResult = await searchAI(content);
+
+      if (aiResult) {
+        // Phase 3: Writing
+        setAIState('writing');
+        await simulateDelay(200, 400);
+
+        assistantMessage = {
+          id: `assistant-${Date.now()}`,
+          role: 'assistant',
+          content: aiResult.data.answer,
+          timestamp: new Date(),
+          aiResponse: aiResult.data,
+          source: 'ai'
+        };
+      } else {
+        // AI failed, fallback to local
+        const localResult = searchLocal(content);
+        
+        setAIState('writing');
+        await simulateDelay(200, 400);
+
+        assistantMessage = {
+          id: `assistant-${Date.now()}`,
+          role: 'assistant',
+          content: localResult ? localResult.item.answer : t.noResult,
+          timestamp: new Date(),
+          result: localResult || undefined,
+          source: localResult ? 'faq' : undefined
+        };
+      }
+    } else {
+      // Offline mode: Use local search only
+      setAIState('thinking');
+      await simulateDelay(300, 500);
+
+      setAIState('searching');
+      await simulateDelay(400, 800);
+
+      const localResult = searchLocal(content);
+
+      setAIState('writing');
+      await simulateDelay(200, 400);
+
+      assistantMessage = {
+        id: `assistant-${Date.now()}`,
+        role: 'assistant',
+        content: localResult ? localResult.item.answer : t.noResult,
+        timestamp: new Date(),
+        result: localResult || undefined,
+        source: 'offline'
+      };
+    }
 
     setMessages(prev => [...prev, assistantMessage]);
     setAIState('idle');
@@ -149,7 +222,7 @@ export function useAssistant(lang: Language) {
       setHasShownBadge(true);
       localStorage.setItem('badge_shown', 'true');
     }
-  }, [search, t.noResult, hasShownBadge]);
+  }, [isOnline, searchLocal, t.noResult, hasShownBadge, lang]);
 
   const closeBadgeNotification = useCallback(() => {
     setShowBadgeNotification(false);

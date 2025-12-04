@@ -9,9 +9,19 @@ import {
   CheckCircle2,
   ChevronRight,
   User,
-  Bot
+  Bot,
+  Sparkles,
+  WifiOff
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { AIResponse } from './AIResponse';
+
+export interface AIResponseData {
+  answer: string;
+  steps?: string[];
+  links?: { title: string; url: string }[];
+  category?: string;
+}
 
 export interface Message {
   id: string;
@@ -19,6 +29,8 @@ export interface Message {
   content: string;
   timestamp: Date;
   result?: SearchResult;
+  aiResponse?: AIResponseData;
+  source?: 'ai' | 'faq' | 'rule' | 'offline';
 }
 
 interface ChatMessageProps {
@@ -33,6 +45,11 @@ export function ChatMessage({ message, lang, isLatest }: ChatMessageProps) {
   const isRTL = lang === 'ar';
 
   const getSourceIcon = () => {
+    // For AI responses
+    if (message.source === 'ai') return <Sparkles className="w-3.5 h-3.5" />;
+    if (message.source === 'offline') return <WifiOff className="w-3.5 h-3.5" />;
+    
+    // For FAQ responses
     if (!message.result) return null;
     switch (message.result.source) {
       case 'cache': return <HardDrive className="w-3.5 h-3.5" />;
@@ -43,6 +60,11 @@ export function ChatMessage({ message, lang, isLatest }: ChatMessageProps) {
   };
 
   const getSourceLabel = () => {
+    // For AI responses
+    if (message.source === 'ai') return lang === 'fr' ? 'Recherche IA' : 'بحث الذكاء الاصطناعي';
+    if (message.source === 'offline') return lang === 'fr' ? 'Mode hors-ligne' : 'وضع عدم الاتصال';
+    
+    // For FAQ responses
     if (!message.result) return '';
     switch (message.result.source) {
       case 'cache': return t.cacheHit;
@@ -58,6 +80,9 @@ export function ChatMessage({ message, lang, isLatest }: ChatMessageProps) {
     return 'bg-muted text-muted-foreground';
   };
 
+  // Check if this is an AI response
+  const hasAIResponse = !isUser && message.aiResponse;
+
   return (
     <div
       className={cn(
@@ -69,14 +94,18 @@ export function ChatMessage({ message, lang, isLatest }: ChatMessageProps) {
       {/* Avatar */}
       <div className={cn(
         "flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center",
-        isUser ? "bg-primary text-primary-foreground" : "bg-accent text-accent-foreground"
+        isUser 
+          ? "bg-primary text-primary-foreground" 
+          : hasAIResponse 
+            ? "bg-gradient-to-br from-violet-500 to-purple-600 text-white"
+            : "bg-accent text-accent-foreground"
       )}>
         {isUser ? <User className="w-5 h-5" /> : <Bot className="w-5 h-5" />}
       </div>
 
       {/* Message bubble */}
       <div className={cn(
-        "flex flex-col gap-2 max-w-[80%]",
+        "flex flex-col gap-2 max-w-[85%]",
         isUser && "items-end"
       )}>
         <div className={cn(
@@ -87,16 +116,21 @@ export function ChatMessage({ message, lang, isLatest }: ChatMessageProps) {
           isRTL && isUser && "rounded-tr-2xl rounded-tl-sm",
           isRTL && !isUser && "rounded-tl-2xl rounded-tr-sm"
         )}>
-          <p className={cn(
-            "text-sm leading-relaxed whitespace-pre-wrap",
-            isRTL && "text-right"
-          )}>
-            {message.content}
-          </p>
+          {/* AI Response with enhanced formatting */}
+          {hasAIResponse ? (
+            <AIResponse data={message.aiResponse!} lang={lang} />
+          ) : (
+            <p className={cn(
+              "text-sm leading-relaxed whitespace-pre-wrap",
+              isRTL && "text-right"
+            )}>
+              {message.content}
+            </p>
+          )}
         </div>
 
-        {/* Result metadata for assistant messages */}
-        {!isUser && message.result && (
+        {/* Result metadata for FAQ assistant messages (non-AI) */}
+        {!isUser && !hasAIResponse && message.result && (
           <div className={cn(
             "flex flex-col gap-3 px-1",
             isRTL && "items-end"
@@ -160,6 +194,16 @@ export function ChatMessage({ message, lang, isLatest }: ChatMessageProps) {
                 {t.linkLabel}
               </a>
             )}
+          </div>
+        )}
+
+        {/* Source indicator for offline/AI mode (without detailed result) */}
+        {!isUser && !hasAIResponse && message.source && !message.result && (
+          <div className={cn("flex items-center gap-2 px-1", isRTL && "flex-row-reverse")}>
+            <Badge variant="secondary" className="gap-1.5 text-xs font-normal">
+              {getSourceIcon()}
+              {getSourceLabel()}
+            </Badge>
           </div>
         )}
 
