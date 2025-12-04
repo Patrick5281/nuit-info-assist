@@ -1,73 +1,133 @@
-# Welcome to your Lovable project
+# Assistant Services Publics - IA Low-Cost
 
-## Project info
+> Assistant intelligent léger (100% front-end) pour accéder facilement aux services publics numériques, même avec une faible connexion Internet.
 
-**URL**: https://lovable.dev/projects/de7c84d5-c6f2-43f8-a65f-2bca18910eef
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Langues](https://img.shields.io/badge/langues-FR%20%7C%20AR-orange)
 
-## How can I edit this code?
+## 🎯 Objectif
 
-There are several ways of editing your application.
+Créer une IA réellement utile, accessible et adaptée aux réalités technologiques des pays ayant une faible connexion Internet, pour aider les utilisateurs à accéder aux services administratifs (documents, démarches, orientation, association, juridique).
 
-**Use Lovable**
+## ✨ Fonctionnalités
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/de7c84d5-c6f2-43f8-a65f-2bca18910eef) and start prompting.
+- **🔍 Recherche TF-IDF** : Algorithme de recherche sémantique côté client
+- **📚 FAQ embarquée** : 30+ questions/réponses par langue (FR/AR)
+- **🔄 Règles intelligentes** : Fallback par mots-clés si TF-IDF échoue
+- **💾 Cache offline** : Stockage localStorage pour mode hors-ligne
+- **🌍 Bilingue FR/AR** : Support RTL complet pour l'arabe
+- **🎮 Gamification** : Compteur de questions + badges
+- **♿ Accessible** : ARIA labels, focus management
+- **📱 Mobile-first** : Design responsive
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠 Architecture Technique
 
-**Use your preferred IDE**
+```
+src/
+├── components/assistant/    # Composants UI du chatbot
+│   ├── ChatMessage.tsx     # Bulles de messages
+│   ├── ChatInput.tsx       # Zone de saisie
+│   ├── TypingIndicator.tsx # Animation "IA réfléchit"
+│   ├── StatusBar.tsx       # Statut connexion + compteur
+│   ├── LanguageSwitch.tsx  # Sélecteur FR/AR
+│   └── SuggestedQuestions.tsx
+├── data/
+│   ├── faq_fr.json         # 30 FAQ en français
+│   └── faq_ar.json         # 30 FAQ en arabe
+├── hooks/
+│   └── useAssistant.ts     # Hook principal (state + logique)
+├── lib/
+│   ├── tfidf.ts            # Moteur TF-IDF + cache + règles
+│   └── i18n.ts             # Traductions
+└── pages/
+    └── Index.tsx           # Page principale
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Voir [INSTALL.md](./INSTALL.md) pour les instructions détaillées.
 
-Follow these steps:
+```bash
+# Cloner le repo
+git clone <URL_DU_REPO>
+cd assistant-frontend
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Installer les dépendances
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Lancer en développement
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 📋 Checklist de Tests
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| # | Test | Résultat attendu |
+|---|------|------------------|
+| 1 | Poser "Comment obtenir un passeport ?" (FR) | Réponse FAQ avec confidence ≥ 0.25 |
+| 2 | Poser la même question en arabe | Réponse AR correcte |
+| 3 | Poser une question reformulée | TF-IDF retrouve la FAQ |
+| 4 | Question avec mot-clé seul ("visa") | Réponse rule fallback (source: rule) |
+| 5 | Couper Wi-Fi + reposer même question | Réponse depuis cache |
+| 6 | Poser 3 questions | Badge "Expert démarches" affiché |
+| 7 | Changer de langue (bouton العربية) | UI passe en RTL |
 
-**Use GitHub Codespaces**
+## 🧠 Justification IA Low-Cost
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Pourquoi TF-IDF ?
 
-## What technologies are used for this project?
+- **Léger** : ~2KB de code, pas de dépendance externe
+- **Rapide** : Calcul instantané côté client
+- **Offline** : Fonctionne sans Internet
+- **Efficace** : Bonne précision pour FAQ structurées
 
-This project is built with:
+### Pipeline de traitement
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Vérifier cache localStorage → Si hit, retourner immédiatement
+2. Tokeniser + normaliser la requête (support Unicode FR/AR)
+3. Calculer TF-IDF sur la base FAQ embarquée
+4. Si score ≥ 0.25 → Retourner meilleure réponse
+5. Sinon → Appliquer règles mots-clés (fallback)
+6. Sauvegarder en cache pour usage offline futur
 
-## How can I deploy this project?
+### Performances
 
-Simply open [Lovable](https://lovable.dev/projects/de7c84d5-c6f2-43f8-a65f-2bca18910eef) and click on Share -> Publish.
+- **Temps de réponse** : < 100ms
+- **Taille bundle** : < 500KB (sans modèle ONNX)
+- **RAM utilisée** : < 50MB
 
-## Can I connect a custom domain to my Lovable project?
+## 📦 Structure des FAQ
 
-Yes, you can!
+```json
+{
+  "id": "fr-001",
+  "title": "Demande de passeport",
+  "question": "Comment obtenir un passeport ?",
+  "keywords": ["passeport", "voyage", "document"],
+  "answer": "Pour obtenir un passeport...",
+  "steps": ["Étape 1", "Étape 2"],
+  "link": "https://service-public.fr/...",
+  "category": "documents",
+  "lang": "fr"
+}
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🔮 Améliorations Futures
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- [ ] Intégration MiniLM ONNX pour reranking sémantique
+- [ ] Service Worker pour mode 100% offline
+- [ ] Plus de langues (langues nationales africaines)
+- [ ] Export PDF des réponses
+- [ ] Historique des conversations
+
+## 📄 Licence
+
+MIT - Voir [LICENSE](./LICENSE)
+
+## 🤝 Contribution
+
+Projet développé dans le cadre de la **Nuit de l'Info**.
+
+---
+
+**Note** : Ce prototype utilise uniquement TF-IDF + règles. L'intégration ONNX MiniLM est documentée mais optionnelle.
