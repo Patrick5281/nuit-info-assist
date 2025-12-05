@@ -60,10 +60,11 @@ export function ChatInput({ lang, onSend, disabled, className }: ChatInputProps)
           rows={1}
           className={cn(
             "w-full resize-none rounded-2xl px-4 py-3 pr-4",
-            "bg-muted/50 border border-border/50",
-            "focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary",
+            "bg-muted/50 border border-primary/60",
+            "focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary/60",
+            "focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0",
             "text-sm placeholder:text-muted-foreground/60",
-            "transition-all duration-200",
+            "transition-none",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             isRTL && "text-right"
           )}

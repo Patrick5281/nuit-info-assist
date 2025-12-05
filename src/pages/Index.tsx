@@ -112,7 +112,7 @@ const Index = () => {
         >
           <div className="max-w-3xl mx-auto py-6 px-4">
             <div
-              className="rounded-3xl border border-border/60 bg-card/90 shadow-glow-lg backdrop-blur-md px-4 sm:px-6 py-4 sm:py-6 space-y-4"
+              className="rounded-3xl border border-border bg-card shadow-lg shadow-glow-lg backdrop-blur-md px-4 sm:px-6 py-4 sm:py-6 space-y-4"
               role="log"
               aria-live="polite"
               aria-label={lang === 'fr' ? 'Historique de la conversation' : 'سجل المحادثة'}
@@ -151,8 +151,8 @@ const Index = () => {
             </div>
             <div
               className={cn(
-                "mt-4 rounded-2xl border border-border/50 bg-gradient-to-b from-background/90 to-background/70",
-                "px-4 py-4 sm:px-6 sm:py-5 shadow-sm"
+                "mt-4 rounded-2xl border border-border bg-gradient-to-b from-background/95 to-background/80",
+                "px-4 py-4 sm:px-6 sm:py-5 shadow-md"
               )}
             >
               <p
