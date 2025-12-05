@@ -112,8 +112,46 @@ const Index = () => {
         >
           <div className="max-w-3xl mx-auto py-6 px-4">
             <div
+              className="rounded-3xl border border-border/60 bg-card/90 shadow-glow-lg backdrop-blur-md px-4 sm:px-6 py-4 sm:py-6 space-y-4"
+              role="log"
+              aria-live="polite"
+              aria-label={lang === 'fr' ? 'Historique de la conversation' : 'سجل المحادثة'}
+            >
+              {/* Messages */}
+              {messages.map((message, index) => (
+                <ChatMessage
+                  key={message.id}
+                  message={message}
+                  lang={lang}
+                  isLatest={index === messages.length - 1}
+                />
+              ))}
+
+              {/* Typing indicator */}
+              {aiState !== 'idle' && (
+                <div className={cn(
+                  "flex",
+                  isRTL ? "justify-end" : "justify-start"
+                )}>
+                  <TypingIndicator state={aiState} lang={lang} />
+                </div>
+              )}
+
+              {/* Suggested questions (show only at start) */}
+              {messages.length <= 1 && (
+                <div className="pt-2">
+                  <SuggestedQuestions
+                    lang={lang}
+                    onSelect={handleSuggestedQuestion}
+                  />
+                </div>
+              )}
+
+              <div ref={messagesEndRef} />
+            </div>
+            <div
               className={cn(
-                "mb-4 rounded-2xl border border-border/50 bg-gradient-to-b from-background/90 to-background/70",
+                "mt-4 rounded-2xl border border-border/50 bg-gradient-to-b from-background/90 to-background/70",
                 "px-4 py-4 sm:px-6 sm:py-5 shadow-sm"
               )}
             >
@@ -201,48 +239,19 @@ const Index = () => {
                   type="button"
                   size="sm"
                   className="btn-primary rounded-full px-4 text-xs whitespace-nowrap"
+                  asChild
                 >
-                  {lang === 'fr' ? 'Commencer maintenant' : 'ابدأ الآن'}
+                  <a
+                    href="https://nird.forge.apps.education.fr/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {lang === 'fr'
+                      ? 'Rejoindre la communauté NIRD'
+                      : 'الانضمام إلى مجتمع NIRD'}
+                  </a>
                 </Button>
               </div>
-            </div>
-            <div
-              className="rounded-3xl border border-border/60 bg-card/90 shadow-glow-lg backdrop-blur-md px-4 sm:px-6 py-4 sm:py-6 space-y-4"
-              role="log"
-              aria-live="polite"
-              aria-label={lang === 'fr' ? 'Historique de la conversation' : 'سجل المحادثة'}
-            >
-              {/* Messages */}
-              {messages.map((message, index) => (
-                <ChatMessage
-                  key={message.id}
-                  message={message}
-                  lang={lang}
-                  isLatest={index === messages.length - 1}
-                />
-              ))}
-
-              {/* Typing indicator */}
-              {aiState !== 'idle' && (
-                <div className={cn(
-                  "flex",
-                  isRTL ? "justify-end" : "justify-start"
-                )}>
-                  <TypingIndicator state={aiState} lang={lang} />
-                </div>
-              )}
-
-              {/* Suggested questions (show only at start) */}
-              {messages.length <= 1 && (
-                <div className="pt-2">
-                  <SuggestedQuestions
-                    lang={lang}
-                    onSelect={handleSuggestedQuestion}
-                  />
-                </div>
-              )}
-
-              <div ref={messagesEndRef} />
             </div>
           </div>
         </div>
