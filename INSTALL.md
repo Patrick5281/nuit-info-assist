@@ -10,30 +10,26 @@
 
 ### 1. Cloner le repository
 
-```bash
-git clone <URL_DU_REPO>
-cd assistant-frontend
-```
+bash
+git clone https://github.com/Patrick5281/nuit-info-assist.git
+cd nuit-info-assist
 
 ### 2. Installer les dépendances
 
-```bash
+bash
 npm install
-```
 
 ### 3. Lancer en mode développement
 
-```bash
+bash
 npm run dev
-```
 
 L'application sera accessible sur `http://localhost:8080`
 
 ### 4. Build production
 
-```bash
+bash
 npm run build
-```
 
 Les fichiers seront générés dans le dossier `dist/`
 
@@ -41,14 +37,13 @@ Les fichiers seront générés dans le dossier `dist/`
 
 Pour tester sans Node.js (pure frontend) :
 
-```bash
+bash
 # Avec Python 3
 cd dist
 python -m http.server 8000
 
 # Ou avec Python 2
 python -m SimpleHTTPServer 8000
-```
 
 Accéder à `http://localhost:8000`
 
@@ -63,15 +58,13 @@ Accéder à `http://localhost:8000`
 
 Les FAQ sont dans `src/data/` :
 
-```
 src/data/
 ├── faq_fr.json   # 30 questions en français
 └── faq_ar.json   # 30 questions en arabe
-```
 
 ### Ajouter une nouvelle FAQ
 
-```json
+json
 {
   "id": "fr-031",
   "title": "Titre court",
@@ -86,7 +79,6 @@ src/data/
   "category": "documents",
   "lang": "fr"
 }
-```
 
 Catégories disponibles :
 - `documents` - Passeport, CNI, etc.
@@ -107,9 +99,8 @@ Catégories disponibles :
 
 Dans `src/lib/tfidf.ts` :
 
-```typescript
+typescript
 const CACHE_TTL = 7 * 24 * 60 * 60 * 1000; // 7 jours
-```
 
 Modifier cette valeur pour ajuster la durée de vie du cache.
 
@@ -117,9 +108,8 @@ Modifier cette valeur pour ajuster la durée de vie du cache.
 
 Dans `src/hooks/useAssistant.ts` :
 
-```typescript
+typescript
 const CONFIDENCE_THRESHOLD = 0.25;
-```
 
 - Augmenter (ex: 0.35) → Plus strict, moins de faux positifs
 - Diminuer (ex: 0.15) → Plus permissif, plus de résultats
@@ -146,46 +136,37 @@ Les styles sont dans :
 
 ### Netlify
 
-```bash
+bash
 npm run build
 # Déployer le dossier dist/
-```
 
 ### Vercel
 
-```bash
+bash
 vercel --prod
-```
+
 
 ### GitHub Pages
 
-```bash
+bash
 npm run build
 # Configurer GitHub Pages sur la branche gh-pages
-```
 
 ## Résolution de Problèmes
 
 ### "Module not found"
 
-```bash
+bash
 rm -rf node_modules
 npm install
-```
 
 ### Erreur de build TypeScript
 
-```bash
+bash
 npm run lint
-# Corriger les erreurs affichées
-```
+
 
 ### Cache corrompu
 
 Ouvrir DevTools → Application → Local Storage → Supprimer les clés `assistant_cache::*`
 
----
-
-## Support
-
-Pour toute question : [elbenany.med-mahmoud@supnum.mr](mailto:elbenany.med-mahmoud@supnum.mr)

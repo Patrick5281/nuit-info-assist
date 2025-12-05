@@ -131,3 +131,9 @@ Projet développé dans le cadre de la **Nuit de l'Info**.
 ---
 
 **Note** : Ce prototype utilise uniquement TF-IDF + règles. L'intégration ONNX MiniLM est documentée mais optionnelle.
+
+
+## Livrables Nuit de l’Info
+
+- Vidéo de démonstration (3 min) : https://...
+- PDF d’architecture & IA low-cost : ./docs/architecture-ia-low-cost.pdf
