@@ -162,7 +162,7 @@ const Index = () => {
                 )}
               >
                 {lang === 'fr'
-                  ? 'Intégré au défi national NIRD - Numérique Inclusif, Responsable et Durable'
+                  ? 'Numérique Inclusif Responsable et Durable'
                   : 'ضمن التحدي الوطني NIRD - رقم شامل ومسؤول ومستدام'}
               </p>
               <div
